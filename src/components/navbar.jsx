@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function Navbar({ totalCount }) {
+const Navbar = memo(({ totalCount }) => {
   return (
     <div className='navbar'>
       <i className='fab fa-stack-exchange navbar-logo'></i>
@@ -8,4 +8,6 @@ export default function Navbar({ totalCount }) {
       <span className='navbar-count'>{totalCount}</span>
     </div>
   );
-}
+});
+
+export default Navbar;

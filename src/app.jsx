@@ -1,10 +1,10 @@
 import './app.css';
 import Habits from './components/habits';
 import Navbar from './components/navbar';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 export default function App() {
-  const data = [
+  const [habits, setHabits] = useState([
     {
       id: 1,
       name: 'Reading',
@@ -20,58 +20,49 @@ export default function App() {
       name: 'Coding',
       count: 0,
     },
-  ];
+  ]);
 
-  const [habits, setHabits] = useState(data);
+  const handleIncrement = useCallback((habit) => {
+    setHabits((habits) =>
+      habits.map((item) => {
+        if (item.id === habit.id) {
+          return { ...habit, count: habit.count + 1 };
+        }
+        return item;
+      })
+    );
+  }, []);
 
-  const handleIncrement = (habit) => {
-    const newHabits = habits.map((item) => {
-      if (item.id === habit.id) {
-        return { ...habit, count: habit.count + 1 };
-      }
-      return item;
-    });
-    setHabits(newHabits);
-  };
+  const handleDecrement = useCallback((habit) => {
+    setHabits((habits) =>
+      habits.map((item) => {
+        if (item.id === habit.id) {
+          const count = habit.count - 1;
+          return { ...habit, count: count < 0 ? 0 : count };
+        }
+        return item;
+      })
+    );
+  }, []);
 
-  const handleDecrement = (habit) => {
-    const newHabits = habits.map((item) => {
-      if (item.id === habit.id) {
-        const count = habit.count - 1;
-        return { ...habit, count: count < 0 ? 0 : count };
-      }
-      return item;
-    });
-    setHabits(newHabits);
-  };
+  const handleDelete = useCallback((habit) => {
+    setHabits((habits) => habits.filter((item) => item.id !== habit.id));
+  }, []);
 
-  const handleDelete = (habit) => {
-    const newHabits = habits.filter((item) => item.id !== habit.id);
-    setHabits(newHabits);
-  };
+  const handleAdd = useCallback((name) => {
+    setHabits((habits) => [...habits, { id: Date.now(), name, count: 0 }]);
+  }, []);
 
-  const handleAdd = (name) => {
-    const newHabits = [
-      ...habits,
-      {
-        id: Date.now(),
-        name: name,
-        count: 0,
-      },
-    ];
-
-    setHabits(newHabits);
-  };
-
-  const handleReset = () => {
-    const newHabits = habits.map((habit) => {
-      if (habit.count !== 0) {
-        return { ...habit, count: 0 };
-      }
-      return habit;
-    });
-    setHabits(newHabits);
-  };
+  const handleReset = useCallback(() => {
+    setHabits((habits) =>
+      habits.map((habit) => {
+        if (habit.count !== 0) {
+          return { ...habit, count: 0 };
+        }
+        return habit;
+      })
+    );
+  }, []);
 
   return (
     <>

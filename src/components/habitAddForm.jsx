@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function HabitAddForm({ onAdd }) {
+const HabitAddForm = memo(({ onAdd }) => {
   const formRef = React.createRef();
   const inputRef = React.createRef();
 
@@ -22,4 +22,6 @@ export default function HabitAddForm({ onAdd }) {
       <button className='add-button'>Add</button>
     </form>
   );
-}
+});
+
+export default HabitAddForm;

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function Habit({ habit, onIncrement, onDecrement, onDelete }) {
+const Habit = memo(({ habit, onIncrement, onDecrement, onDelete }) => {
   return (
     <li className='habit'>
       <span className='habit-name'>{habit.name}</span>
@@ -31,4 +31,6 @@ export default function Habit({ habit, onIncrement, onDecrement, onDelete }) {
       </button>
     </li>
   );
-}
+});
+
+export default Habit;
