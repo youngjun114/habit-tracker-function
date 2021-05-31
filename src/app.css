@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Saira', sans-serif;
+  font-weight: 400;
+}
+
+button {
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.navbar {
+  font-family: 'Saira', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  padding: 0.3em;
+  background-color: #a6a9b6;
+}
+
+.navbar-logo {
+  color: black;
+  margin-right: 0.5em;
+}
+
+.add-form {
+  padding: 1.5rem 3.5rem;
+}
+.add-input {
+  height: 100%;
+  font-size: 1.5rem;
+  margin-right: 0.3em;
+}
+
+.add-button {
+  height: 100%;
+  font-size: 1.5rem;
+  padding: 0.3em 0.5em;
+  background-color: #6082b6;
+  color: white;
+  border-radius: 10%;
+}
+.navbar-count {
+  display: inline-block;
+  text-align: center;
+  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: darkseagreen;
+  color: white;
+  border-radius: 25%;
+}
+
+.reset-button {
+  font-size: 2.5rem;
+  margin: 0 1.5em;
+  background-color: #ffddaa;
+  border-radius: 5%;
+}
+
+.habit {
+  font-size: 2.5rem;
+  padding: 0.5em;
+  list-style: none;
+}
+
+.habit-count {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: darkseagreen;
+  color: white;
+  border-radius: 25%;
+}
+
+.habit-button {
+  font-size: 2.5rem;
+  margin: 0 0.1em;
+  background-color: transparent;
+}
+
+.habit-button:hover {
+  opacity: 0.8;
+}
+
+.habit-increase,
+.habit-decrease {
+  color: #6082b6;
+}
+
+.habit-delete {
+  font-size: 2rem;
+  color: darkred;
+}
